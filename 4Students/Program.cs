@@ -14,8 +14,8 @@ namespace _4Students
             //SimpleCalculatorAlt();
             //InfinateNumberGame();
             //NumberGameLifes();
+            //BMICalculator();
         }
-
         static void SimpleCalculator()
         {
             Console.Write("Gebe die erste Zahl ein: ");
@@ -152,6 +152,38 @@ namespace _4Students
 
             Console.ReadKey();
 
+        }
+        static void BMICalculator()
+        {
+            Console.Write("Gib dein Gewicht (kg) an: ");
+            double.TryParse(Console.ReadLine(), out var weight);
+            Console.Write("Gib deine Größe (m) an: ");
+            double.TryParse(Console.ReadLine(), out var height);
+
+            var bmi = weight / (height * height);
+
+            if (bmi < 18.5)
+            {
+                Console.WriteLine($"Dein BMI ist {Math.Round(bmi, 1, MidpointRounding.AwayFromZero)}. Du bist untergewichtig.");
+            }
+            else if (bmi >= 18.5 && bmi <= 24.9)
+            {
+                Console.WriteLine($"Dein BMI ist {Math.Round(bmi, 1, MidpointRounding.AwayFromZero)} Du bist normalgewichtig.");
+            }
+            else if (bmi >= 25 && bmi <= 29.9)
+            {
+                Console.WriteLine($"Dein BMI ist {Math.Round(bmi, 1, MidpointRounding.AwayFromZero)} Du bist übergewichtig.");
+            }
+            else if (bmi >= 30 && bmi <= 34.9)
+            {
+                Console.WriteLine($"Dein BMI ist {Math.Round(bmi, 1, MidpointRounding.AwayFromZero)} Du hast Adipositas Grad 1.");
+            }
+            else if (bmi >= 35 && bmi <= 39.9)
+            {
+                Console.WriteLine($"Dein BMI ist {Math.Round(bmi, 1, MidpointRounding.AwayFromZero)} Du hast Adipositas Grad 2.");
+            }
+
+            Console.ReadKey();
         }
     }
 }
